@@ -24,11 +24,18 @@ else
     chown -R abc:abc /config/www
 fi
 
-echo "[LetsOrg] Cloning organizr-ngxc plugin..."
-git clone -b develop https://github.com/vertig0ne/organizr-ngxc /tmp/organizr-ngxc
-cd /tmp/organizr-ngxc
-chmod +x install.sh
-echo "[LetsOrg] Installing plugin..."
-./install.sh
+if [ -d "/tmp/organizr-ngxc" ]; then
+    echo "[LetsOrg] Cloning organizr-ngxc plugin..."
+    git clone -b develop https://github.com/vertig0ne/organizr-ngxc /tmp/organizr-ngxc
+    cd /tmp/organizr-ngxc
+    chmod +x install.sh
+    echo "[LetsOrg] Installing plugin..."
+    ./install.sh
+else
+    echo "[LetsOrg] Updating organizr-ngxc plugin..."
+    cd /tmp/organizr-ngxc
+    git pull
+    ./install.sh
+fi
 
 echo "[LetsOrg] Finished"
