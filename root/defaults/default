@@ -14,9 +14,7 @@ server {
 	root /config/www;
 	index index.html index.htm index.php;
 	server_name _;
-	
-	include /config/auth.conf;
-	
+		
 	gzip on;
 	gzip_vary on;
 	gzip_min_length 1000;
