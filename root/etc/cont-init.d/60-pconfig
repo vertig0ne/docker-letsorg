@@ -1,8 +1,11 @@
 #!/usr/bin/with-contenv bash
 
 echo "[LetsOrg] Starting..."
-mkdir /config/proxy
-chown abc:abc /config/proxy
+if [ ! -d "/config/proxy" ]; then
+    mkdir /config/proxy
+    chmod 777 /config/proxy
+    chown abc:abc /config/proxy
+fi
 
 if [[ ! -f /config/ngxc.conf ]]; then
     cp /defaults/ngxc.conf /config/
