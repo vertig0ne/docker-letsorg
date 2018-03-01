@@ -29,7 +29,7 @@ fi
 
 if [ ! -d "/tmp/organizr-ngxc" ]; then
     echo "[LetsOrg] Cloning organizr-ngxc plugin..."
-    git clone -b develop https://github.com/vertig0ne/organizr-ngxc /tmp/organizr-ngxc
+    git clone https://github.com/vertig0ne/organizr-ngxc /tmp/organizr-ngxc
     cd /tmp/organizr-ngxc
     chmod +x install.sh
     echo "[LetsOrg] Installing plugin..."
